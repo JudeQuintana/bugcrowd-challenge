@@ -3,9 +3,10 @@ class EntitiesController < ApplicationController
 
     json = JSON.parse(request.body.read)
 
-    @entity = Entity.find_or_initialize_by(entity_id: json["entity_id"])
+    @entity = Entity.find_or_initialize_by(entity_id: json["entity_id"])  #find current Entity according to entity_id
+                                                                          #or new one up with entity_id
 
-    if @entity.update(entity_type: json["entity_type"], tags: json["tags"])
+    if @entity.update(entity_type: json["entity_type"], tags: json["tags"]) #running validations for presence of all fields
       render nothing: true
     else
       render :json => [], status: :unprocessable_entity

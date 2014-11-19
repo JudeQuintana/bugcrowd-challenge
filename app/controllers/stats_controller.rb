@@ -2,7 +2,7 @@ class StatsController < ApplicationController
 
   def index
 
-    tags_arr = Entity.all.map(&:tags).flatten.uniq
+    tags_arr = Entity.all.map(&:tags).flatten.uniq #grabbing all tags from all Entities in collection
 
     render :json => Stats.new(tags_arr).generate
   end
@@ -14,7 +14,7 @@ class StatsController < ApplicationController
     if @entity.nil?
       render :json => [], status: 404
     else
-      tags_arr = @entity.tags.flatten.uniq
+      tags_arr = @entity.tags.flatten.uniq #grabbing tags from single Entity
 
       render :json => Stats.new(tags_arr).generate
     end
