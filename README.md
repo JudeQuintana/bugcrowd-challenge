@@ -59,8 +59,8 @@ design choices to be an API that people post to and get from and making certain 
 I spent a lot of time trying to decide what postgresql data type I should use for storing and searching json data.  Mucked
 around with the json data type but was not sufficient because I need to access the array without to much conversion time.
 hstore was next up but also seemed like unnecessary conversions. To simplify I just stored the entity_type and entity_id as
-strings and storing the array as an array in the DB which sufficed because of the search operators can be performed on it.
-I could also just make the entity_id unique with and index for fast look up, although I probably should try to figure out
+strings and storing the array as an array in the DB which sufficed because of the search operators that can be performed on
+it. I could also just make the entity_id unique with and index for fast look up, although I probably should try to figure out
 how to make it the primary key.
 
 At first I didnt understand how to receive json in the request body so I started out using params to ingest from a form in
@@ -76,6 +76,9 @@ validation failed for any of the params on the update.
 
 I didn't write any tests because I wasn't sure how to even get this the api started so all tests were done by hand. I can
 probably back fill them now that I understand what is going on for this API.
+
+I'm probably missing points on my refactoring but those were the ones that stuck out the most, so will definitely commit
+from now on, like I usually do!
 
 
 
