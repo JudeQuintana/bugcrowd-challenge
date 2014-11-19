@@ -35,7 +35,7 @@ Completely removes the entity and tags
 ```
 GET /stats
 
-Retrives statistics about all tags
+Retrieves statistics about all tags
 
 e.g. [{tag: 'Bike', count: 5}, {tag: 'Pink', count: 3}]
 ```
@@ -45,5 +45,5 @@ e.g. [{tag: 'Bike', count: 5}, {tag: 'Pink', count: 3}]
 ```
 GET /stats/:entity_type/:entity_id
 
-Retrives statistics about a specific tagged entity
+Retrieves statistics about a specific tagged entity
 ```
