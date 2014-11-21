@@ -64,7 +64,7 @@ it. I could also just make the entity_id unique with and index for fast look up,
 how to make it the primary key.
 
 At first I didnt understand how to receive json in the request body so I started out using params to ingest from a form in
-some post requests via POSTMAN in Chrome. Then I figured out how to use request.body after i got things working using params
+some post requests via POSTMAN with raw JSON objects in Chrome. Then I figured out how to use request.body after i got things working using params
 for the initial post.
 
 Also, I had some 'weird' validations going on by checking if a new entity was valid according to a uniqueness validation
