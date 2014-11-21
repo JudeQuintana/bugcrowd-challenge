@@ -16,7 +16,7 @@ class StatsController < ApplicationController
       render json: [], status: 404
     else
       #grabbing tags from single Entity
-      tags_arr = @entity.tags.flatten.uniq
+      tags_arr = @entity.tags.uniq
 
       render json: Stats.new(tags_arr).generate
     end
