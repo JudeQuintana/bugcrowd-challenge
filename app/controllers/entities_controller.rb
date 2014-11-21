@@ -2,7 +2,7 @@ class EntitiesController < ApplicationController
   def create
 
     #reads and parses incoming json object
-    #tested POSTs with POSTMAN via raw JSON objects
+    #tested POSTs via POSTMAN with raw JSON objects
     #ie.  {"entity_id": "1234", "entity_type": "Product", "tags": ["one","two","three"]}
     json = JSON.parse(request.body.read)
 
