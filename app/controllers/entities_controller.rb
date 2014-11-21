@@ -1,11 +1,14 @@
 class EntitiesController < ApplicationController
   def create
 
-    json = JSON.parse(request.body.read) #reads and parses incoming json object
+    #reads and parses incoming json object
+    #tested POSTs with POSTMAN via raw JSON objects
+    #ie.  {"entity_id": "1234", "entity_type": "Product", "tags": ["one","two","three"]}
+    json = JSON.parse(request.body.read)
 
-    @entity = Entity.find_or_initialize_by(entity_id: json["entity_id"])
     #find current Entity according to entity_id
     #or new one up with entity_id
+    @entity = Entity.find_or_initialize_by(entity_id: json["entity_id"])
 
     if @entity.update(entity_type: json["entity_type"], tags: json["tags"]) #running validations for presence of all fields
       render nothing: true
@@ -21,9 +24,9 @@ class EntitiesController < ApplicationController
     if @entity.empty?
       render json: [], status: 404 #return empty collection because not found
     else
-      render json: @entity, except: [:id]
       #dont need show id since entity_id is unique should
       #probably figure out how to make entity_id the PK
+      render json: @entity, except: [:id]
     end
   end
 
