@@ -1,7 +1,7 @@
 class StatsController < ApplicationController
 
   def index
-    render json: Stats.generate_for_all
+    render json: Stats.generate_all
   end
 
   def show

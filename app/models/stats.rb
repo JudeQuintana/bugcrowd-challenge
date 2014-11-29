@@ -1,6 +1,6 @@
 class Stats
 
-  def self.generate_for_all
+  def self.generate_all
 
     #grabbing all tags from all Entities in collection
     tags_arr = Entity.all.map(&:tags).flatten.uniq
